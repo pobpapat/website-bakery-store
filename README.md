@@ -1,26 +1,38 @@
-# Exam Project
+# Bakery Store E-Commerce Project
 
-โปรเจคนี้เป็นระบบร้านค้าออนไลน์ (E-commerce) สำหรับอุปกรณ์ทำอาหาร/เบเกอรี่ ที่ประกอบด้วย:
+**Live Website:** [https://website-bakery-store.vercel.app/](https://website-bakery-store.vercel.app/)
 
-- `backend/` - API server ด้วย Node.js, Express, MongoDB
-- `frontend/` - แอป React + Vite + TailwindCSS
+โปรเจคนี้เป็นระบบร้านค้าออนไลน์ (E-commerce) สำหรับอุปกรณ์ทำเบเกอรี่ ที่ประกอบด้วย:
 
 
-## เทคโนโลยีหลัก
+### Deployment & Hosting (การให้บริการและจัดเก็บข้อมูล)
+- **Vercel** - สำหรับ Deploy และ Hosting ฝั่ง Frontend
+- **Render** - สำหรับ Deploy และ Hosting ฝั่ง Backend (API)
+- **MongoDB Atlas** - สำหรับให้บริการฐานข้อมูลบนคลาวด์ (Cloud Database)
+- **Cloudinary** - สำหรับจัดเก็บรูปภาพบนคลาวด์
 
-- Backend: Node.js, Express, MongoDB, Mongoose, JWT, Multer, Nodemailer
-- Frontend: React, Vite, TailwindCSS, Axios, React Router Dom, Swiper, Recharts
+## เทคโนโลยีที่ใช้ 
 
-## โครงสร้างไฟล์สำคัญ
+### Frontend
+- **React.js** (Vite) - สำหรับสร้าง User Interface
+- **TailwindCSS** - สำหรับตกแต่งสไตล์ (Styling)
+- **React Router Dom** - สำหรับจัดการเส้นทางหน้าเว็บ (Routing)
+- **Axios** - สำหรับเรียกใช้ API
+- **Swiper** - สำหรับทำสไลด์โชว์
+- **Recharts** - สำหรับแสดงกราฟในหน้าระบบหลังบ้าน
+- **jwt-decode** - สำหรับถอดรหัส JWT Token บนฝั่งไคลเอนต์
+- **date-fns** - สำหรับจัดการรูปแบบวันที่
 
-- `backend/index.js` - เริ่มเซิร์ฟเวอร์, เชื่อมต่อ MongoDB, ลงทะเบียน route
-- `backend/routes/` - API route สำหรับ auth, products, categories, promotions, orders, cart, users, sales, claims
-- `backend/models/` - Mongoose model ของ entities ต่างๆ
-- `backend/middleware/auth.js` - ตรวจสอบ JWT และสิทธิ์ผู้ใช้
-- `backend/jobs/cancelExpiredOrders.js` - background job ยกเลิกคำสั่งซื้อที่หมดอายุ
-- `frontend/src/App.jsx` - ตั้งค่า routing และ Axios interceptor
-- `frontend/src/pages/` - เพจผู้ใช้ทั่วไปและหน้า admin
-- `frontend/vite.config.js` - ตั้งค่า proxy `/api` เป็น `http://localhost:5000`
+### Backend
+- **Node.js** & **Express.js** - สำหรับสร้าง API Server
+- **MongoDB** & **Mongoose** - สำหรับจัดการฐานข้อมูล
+- **JWT (JSON Web Token)** - สำหรับระบบยืนยันตัวตน (Authentication)
+- **Bcrypt.js** - สำหรับเข้ารหัสรหัสผ่าน
+- **Multer** - สำหรับจัดการอัปโหลดไฟล์
+- **Cloudinary** - สำหรับจัดเก็บรูปภาพบนคลาวด์
+- **Nodemailer** - สำหรับระบบส่งอีเมล
+
+
 
 ## การติดตั้ง
 
@@ -50,7 +62,7 @@ EMAIL_USER=your_email@example.com
 EMAIL_PASS=your_email_password
 ```
 
-> อย่าเก็บข้อมูลลับ เช่น รหัสผ่านหรือคีย์ API ไว้ใน repository แบบสาธารณะ
+
 
 ## การรันโปรเจค
 
@@ -89,10 +101,6 @@ http://localhost:5173
 - `npm run build` - build frontend สำหรับ production
 - `npm run lint` - ตรวจสอบโค้ดด้วย ESLint
 
-## หมายเหตุ
 
-- Backend ต้องทำงานก่อนหรือพร้อมใช้งานก่อนที่จะรัน frontend เพราะ frontend เรียก API ผ่าน proxy
-- รูปภาพสินค้าและรูปภาพการชำระเงินจะถูกเรียกจาก backend ที่พอร์ต `5000`
-- หากใช้พอร์ตอื่น ต้องอัปเดต `frontend/vite.config.js` และ `backend/index.js`
 
 
